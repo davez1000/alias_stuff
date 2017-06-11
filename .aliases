@@ -83,7 +83,7 @@ alias top='atop'
 
 dropnote() {
 	NOTE=$(date +"%m_%d_%Y")
-	touch ~/Dropbox/__temp_notes/note_$NOTE.txt
-	vi ~/Dropbox/__temp_notes/note_$NOTE.txt
+	touch ~/Dropbox/__dropnotes/note_$NOTE.txt
+	vi ~/Dropbox/__dropnotes/note_$NOTE.txt
 }
 
