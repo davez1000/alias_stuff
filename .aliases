@@ -42,7 +42,7 @@ alias edit='vim'
 alias ports='netstat -tulanp'
 
 # do not delete / or prompt if deleting more than 3 files at a time #
-alias rm='rm -I --preserve-root'
+#alias rm='rm -I --preserve-root'
  
 # confirmation #
 alias mv='mv -i'
@@ -50,9 +50,9 @@ alias cp='cp -i'
 alias ln='ln -i'
  
 # Parenting changing perms on / #
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
+#alias chown='chown --preserve-root'
+#alias chmod='chmod --preserve-root'
+#alias chgrp='chgrp --preserve-root'
 
 ## pass options to free ##
 alias meminfo='free -m -l -t'
@@ -82,7 +82,7 @@ alias du='du -ch'
 alias top='atop'
 
 dropnote() {
-	NOTE=$(date +"%m_%d_%Y")
+	NOTE=$(date +"%d_%m_%Y")
 	touch ~/Dropbox/__dropnotes/note_$NOTE.txt
 	vi ~/Dropbox/__dropnotes/note_$NOTE.txt
 }
