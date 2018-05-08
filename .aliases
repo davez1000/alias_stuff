@@ -45,7 +45,7 @@ alias ports='netstat -tulanp'
 #alias rm='rm -I --preserve-root'
 
 # brew install rmtrash
-alias rm="rmtrash"
+#alias rm="rmtrash"
  
 # confirmation #
 alias mv='mv -i'
@@ -92,4 +92,61 @@ dropnote() {
 	touch ~/Dropbox/__dropnotes/note_$NOTE.txt
 	vi ~/Dropbox/__dropnotes/note_$NOTE.txt
 }
+
+
+
+mdb_import() {
+  if [[ -z $1 ]]; then
+    echo 'which import?'
+  else
+    docker exec -i web ./vendor/bin/drush --root=$(pwd)/docroot migrate:import $1 --feedback="1 seconds"
+  fi
+}
+
+
+mdb_feature_import() {
+  if [[ -z $1 ]]; then
+    echo 'which import?'
+  else
+    docker exec -i web ./vendor/bin/drush --root=$(pwd)/docroot features-import $1
+  fi
+}
+
+
+mdb_rollback() {
+  if [[ -z $1 ]]; then
+    echo 'which rollback?'
+  else
+    docker exec -i web ./vendor/bin/drush --root=$(pwd)/docroot migrate:rollback $1 
+  fi
+}
+
+
+mdb_reset() {
+  if [[ -z $1 ]]; then
+    echo 'which reset?'
+  else
+    docker exec -i web ./vendor/bin/drush php-eval "var_dump(Drupal::keyValue('migrate_status')->set($1, 0));"
+  fi
+}
+
+
+mdb_cr() {
+  docker exec -i web ./vendor/bin/drush cr
+}
+
+
+mdb_status() {
+  docker exec -i web ./vendor/bin/drush --root=$(pwd)/docroot migrate:status
+}
+
+alias ctags="`brew --prefix`/bin/ctags"
+
+#alias -g php="/Applications/MAMP/bin/php/php7.1.12/bin/php"
+alias -g mampdir="/Applications/MAMP/htdocs/"
+
+#alias j9="export JAVA_HOME=`/usr/libexec/java_home -v 9`; java -version"
+#alias j8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"
+#alias j7="export JAVA_HOME=`/usr/libexec/java_home -v 1.7`; java -version"
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version
 
