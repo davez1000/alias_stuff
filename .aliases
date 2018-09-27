@@ -145,6 +145,9 @@ alias ctags="`brew --prefix`/bin/ctags"
 #alias -g php="/Applications/MAMP/bin/php/php7.1.12/bin/php"
 alias -g mampdir="/Applications/MAMP/htdocs/"
 
+# zshmarks plugin for oh-my-zsh
+alias j="jump"
+
 #alias j9="export JAVA_HOME=`/usr/libexec/java_home -v 9`; java -version"
 #alias j8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"
 #alias j7="export JAVA_HOME=`/usr/libexec/java_home -v 1.7`; java -version"
